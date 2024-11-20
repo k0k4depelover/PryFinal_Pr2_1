@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen de Matemáticas</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Formulario de inicio de sesión -->
+    <div id="login-form" class="login-form">
+        <h2>Ingreso al Examen</h2>
+        <form id="login" onsubmit="return login()">
+            <div class="input-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Ingresar</button>
+            <p id="error-message" style="color: red; display: none;">Usuario o contraseña incorrectos</p>
+        </form>
+    </div>
+
+    <!-- Examen -->
+    <div id="exam" style="display: none;">
+        <header class="header">
+            <h1>Bienvenido al Examen de Matemáticas</h1>
+            <p>El examen consta de 5 preguntas de selección múltiple. Selecciona la respuesta que consideres correcta. La nota aprobatoria es del 60% (3 de 5 respuestas correctas). ¡Mucha suerte!</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Pregunta 1 -->
+            <section class="question">
+                <h2>Pregunta 1: Encuentra el dominio de la función</h2>
+                <img src="img/dom.jpeg" alt="Función a analizar" class="question-image" lenght="150" width="150">
+                <div class="option">
+                    <input type="radio" id="dominio1" name="dominio" value="reales-excepto-7">
+                    <label for="dominio1">Reales excepto 7</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="dominio2" name="dominio" value="reales-excepto-raiz-7">
+                    <label for="dominio2">Reales excepto √7</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="dominio3" name="dominio" value="reales-excepto-mas-menos-raiz-7">
+                    <label for="dominio3">Reales excepto ±√7</label>
+                </div>
+            </section>
+
+            <!-- Pregunta 2 -->
+            <section class="question">
+                <h2>Pregunta 2: Calcula el límite</h2>
+                <img src="img/limit.jpeg" alt="Función límite a analizar" class="question-image" lenght="150" width="150">
+                <div class="option">
+                    <input type="radio" id="limit1" name="limit" value="cero">
+                    <label for="limit1">Cero</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="limit2" name="limit" value="diverge">
+                    <label for="limit2">Diverge (Infinito)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="limit3" name="limit" value="dos">
+                    <label for="limit3">Dos</label>
+                </div>
+            </section>
+
+            <!-- Pregunta 3 -->
+            <section class="question">
+                <h2>Pregunta 3: Encuentra el valor de "x"</h2>
+                <img src="img/cuadratic.jpeg" alt="Ecuación cuadrática" class="question-image" lenght="150" width="150">
+                <div class="option">
+                    <input type="radio" id="cuadratic1" name="cuadratic" value="unopuntosiete">
+                    <label for="cuadratic1">x=1.78; x=-0.28</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="cuadratic2" name="cuadratic" value="puntoveintiocho">
+                    <label for="cuadratic2">x=-1.78; x=0.28</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="cuadratic3" name="cuadratic" value="puntocerocinco">
+                    <label for="cuadratic3">x=1; x=0.5</label>
+                </div>
+            </section>
+
+            <!-- Pregunta 4 -->
+            <section class="question">
+                <h2>Pregunta 4: Calcula la derivada</h2>
+                <img src="img/derivada.jpeg" alt="Función a derivar" class="question-image" lenght="150" width="200">
+                <div class="option">
+                    <input type="radio" id="derivad1" name="derivad" value="menospi">
+                    <label for="derivad1">-π</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="derivad2" name="derivad" value="menosuno">
+                    <label for="derivad2">-1</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="derivad3" name="derivad" value="menosdospi">
+                    <label for="derivad3">-2π</label>
+                </div>
+            </section>
+
+            <!-- Pregunta 5 -->
+            <section class="question">
+                <h2>Pregunta 5: Encuentra la "x"</h2>
+                <img src="img/log.jpeg" alt="Función logarítmica" class="question-image" lenght="150" width="150">
+                <div class="option">
+                    <input type="radio" id="logs1" name="logs" value="rdose">
+                    <img src="img/resultlog.jpeg" lenght="100" width="100">
+                </div>
+                <div class="option">
+                    <input type="radio" id="logs2" name="logs" value="rdosee">
+                    <img src="img/resultlog1.jpeg" lenght="100" width="100">
+                </div>
+                <div class="option">
+                    <input type="radio" id="logs3" name="logs" value="eala3">
+                    <img src="img/resultlog2.jpeg" lenght="100" width="100">
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <button type="button" id="submit-answers" class="submit-button">Subir Respuestas</button>
+        </footer>
+    </div>
+
+    <script src="main1.js"></script>
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'alumno' && password === '2024') {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('exam').style.display = 'block';
+                return false; // Evitar recargar la página
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
